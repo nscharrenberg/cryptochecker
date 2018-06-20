@@ -12,10 +12,10 @@ module.exports = function (ctx) {
     ],
     extras: [
       ctx.theme.mat ? 'roboto-font' : null,
-      'material-icons' // optional, you are not bound to it
-      // 'ionicons',
-      // 'mdi',
-      // 'fontawesome'
+      'material-icons',
+      'ionicons',
+      'mdi',
+      'fontawesome'
     ],
     supportIE: true,
     build: {
@@ -41,6 +41,7 @@ module.exports = function (ctx) {
     },
     // framework: 'all' --- includes everything; for dev only!
     framework: {
+      iconSet: 'material-icons',
       components: [
         'QLayout',
         'QLayoutHeader',
@@ -55,7 +56,14 @@ module.exports = function (ctx) {
         'QListHeader',
         'QItem',
         'QItemMain',
-        'QItemSide'
+        'QItemSide',
+        'QCard',
+        'QCardTitle',
+        'QCardMain',
+        'QCardMedia',
+        'QCardSeparator',
+        'QCardActions',
+        'QAutocomplete',
       ],
       directives: [
         'Ripple'

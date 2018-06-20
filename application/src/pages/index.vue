@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <img alt="Quasar logo" src="~assets/quasar-logo-full.svg">
+    <CryptoCard></CryptoCard>
   </q-page>
 </template>
 
@@ -8,7 +8,15 @@
 </style>
 
 <script>
+import CryptoCard from 'src/components/CryptoCard'
 export default {
-  name: 'PageIndex'
+  name: 'PageIndex',
+  components: {
+    CryptoCard
+  },
+  created () {
+    this.$store.commit('market/setCryptos')
+    this.$store.commit('market/setMarketData')
+  }
 }
 </script>
