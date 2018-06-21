@@ -1,16 +1,19 @@
 <template>
   <div>
+    <div class="flex flex-center">
+      <div class="q-display-2 text-weight-bold text-white text-center">Total Market Capital: &euro;{{marketCapital.toLocaleString()}}</div>
+    </div>
     <div class="row">
-      <q-card inline class="q-ma-sm" v-for="crypto in marketState" :key="crypto.id">
+      <q-card inline class="q-ma-sm" v-for="(crypto, index) in Object.values(marketState).slice(0, 12)" :key="crypto.id">
         <q-card-media>
-          <img :src="crypto.image != null ? crypto.image : 'https://www.cryptovue.com/static/undefined_logo.png'" style="margin-bottom: 15px">
+          <img :src="crypto.image" style="margin-bottom: 15px" @error="imageLoadError(crypto, index)">
           <q-card-title class="title" slot="overlay">
             {{crypto.name}}
             <span slot="subtitle" class="title price-title">
               &euro;{{getPrice(crypto, "EUR")}}
               <span :class="{'positive-percent-change': crypto.quotes.EUR.isPositiveChange, 'negative-percent-change': !crypto.quotes.EUR.isPositiveChange}"> {{crypto.quotes.EUR.percent_change_24h}}%
                   <q-icon name="arrow_upward" size="12px"/>
-                <q-icon name="arrow_downward" size="12px"/>
+                  <q-icon name="arrow_downward" size="12px"/>
                 </span>
             </span>
           </q-card-title>
@@ -36,6 +39,14 @@ export default {
       set () {
         this.$store.commit('market/setCryptos')
       }
+    },
+    marketCapital: {
+      get () {
+        return this.$store.state.market.totalMarketCap
+      },
+      set () {
+        this.$store.commit('market/setMarketData')
+      }
     }
   },
   methods: {
@@ -48,6 +59,10 @@ export default {
     },
     getPercentageOfChangedPricein24h (crypto) {
       return crypto.quotes.EUR.percent_change_24h
+    },
+    imageLoadError (crypto, index) {
+      console.log('Image for ' + crypto.symbol + ' was not found.')
+      crypto.image = '/assets/crypto/undefined.png'
     }
   }
 }

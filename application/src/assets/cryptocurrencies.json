@@ -1,0 +1,44 @@
+{
+  "BTC": {
+    "image": "assets/crypto/btc.png",
+    "icon": "assets/crypto/icons/btc.png",
+    "description": "Bitcoin is an experimental digital currency that enables instant payments to anyone, anywhere in the world. Bitcoin uses peer-to-peer technology to operate with no central authority: managing transactions and issuing money are carried out collectively by the network. Bitcoin Core is the name of open source software which enables the use of this currency.",
+    "github": "https://github.com/bitcoin/bitcoin"
+  },
+  "LTC": {
+    "image": "assets/crypto/ltc.png",
+    "icon": "assets/crypto/icons/ltc.png"
+  },
+  "XRP": {
+    "image": "assets/crypto/xrp.png",
+    "icon": "assets/crypto/icons/xrp.png"
+  },
+  "XLM": {
+    "image": "assets/crypto/xlm.png",
+    "icon": "assets/crypto/icons/xlm.png"
+  },
+  "ETH": {
+    "image": "assets/crypto/eth.png",
+    "icon": "assets/crypto/icons/eth.png"
+  },
+  "MIOTA": {
+    "image": "assets/crypto/miota.png",
+    "icon": "assets/crypto/icons/miota.png"
+  },
+  "EOS": {
+    "image": "assets/crypto/eos.png",
+    "icon": "assets/crypto/icons/eos.png"
+  },
+  "BCH": {
+    "image": "assets/crypto/bch.png",
+    "icon": "assets/crypto/icons/bch.png"
+  },
+  "TRX": {
+    "image": "assets/crypto/trx.png",
+    "icon": "assets/crypto/icons/trx.png"
+  },
+  "ADA": {
+    "image": "assets/crypto/ada.png",
+    "icon": "assets/crypto/icons/ada.png"
+  }
+}

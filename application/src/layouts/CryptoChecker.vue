@@ -20,11 +20,12 @@ export default {
 }
 </script>
 
-<style>
+<style lang="stylus">
+  $primary = #440000;
   body {
     background: #333;
-    background: -webkit-linear-gradient(left top, #002244, #440000);
-    background: -moz-linear-gradient(bottom right, #002244, #440000);
-    background: linear-gradient(to bottom right, #002244, #440000);
+    background: -webkit-linear-gradient(left top, #002244, $primary);
+    background: -moz-linear-gradient(bottom right, #002244, $primary);
+    background: linear-gradient(to bottom right, #002244, $primary);
   }
 </style>
