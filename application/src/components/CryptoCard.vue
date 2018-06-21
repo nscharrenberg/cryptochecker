@@ -1,10 +1,7 @@
 <template>
   <div>
-    <div class="flex flex-center">
-      <div class="q-display-2 text-weight-bold text-white text-center">Total Market Capital: &euro;{{marketCapital.toLocaleString()}}</div>
-    </div>
     <div class="row">
-      <q-card inline class="q-ma-sm" v-for="(crypto, index) in Object.values(marketState).slice(0, 12)" :key="crypto.id">
+      <q-card inline class="q-ma-sm" v-for="(crypto, index) in orderMarketState()" :key="crypto.id">
         <q-card-media>
           <img :src="crypto.image" style="margin-bottom: 15px" @error="imageLoadError(crypto, index)">
           <q-card-title class="title" slot="overlay">
@@ -12,8 +9,8 @@
             <span slot="subtitle" class="title price-title">
               &euro;{{getPrice(crypto, "EUR")}}
               <span :class="{'positive-percent-change': crypto.quotes.EUR.isPositiveChange, 'negative-percent-change': !crypto.quotes.EUR.isPositiveChange}"> {{crypto.quotes.EUR.percent_change_24h}}%
-                  <q-icon name="arrow_upward" size="12px"/>
-                  <q-icon name="arrow_downward" size="12px"/>
+                  <q-icon v-if="crypto.quotes.EUR.isPositiveChange" name="arrow_upward" size="12px"/>
+                  <q-icon v-else-if="!crypto.quotes.EUR.isPositiveChange" name="arrow_downward" size="12px"/>
                 </span>
             </span>
           </q-card-title>
@@ -39,14 +36,6 @@ export default {
       set () {
         this.$store.commit('market/setCryptos')
       }
-    },
-    marketCapital: {
-      get () {
-        return this.$store.state.market.totalMarketCap
-      },
-      set () {
-        this.$store.commit('market/setMarketData')
-      }
     }
   },
   methods: {
@@ -63,7 +52,18 @@ export default {
     imageLoadError (crypto, index) {
       console.log('Image for ' + crypto.symbol + ' was not found.')
       crypto.image = '/assets/crypto/undefined.png'
+    },
+    orderMarketState () {
+      return Object.values(this.marketState).sort(function (a, b) { return (a.rank > b.rank) ? 1 : ((b.rank > a.rank) ? -1 : 0) })
     }
+  },
+  mounted: function () {
+    this.$store.commit('market/setCryptos')
+
+    setInterval(function () {
+      console.log('testing')
+      this.$store.commit('market/setCryptos')
+    }.bind(this), 30000)
   }
 }
 </script>

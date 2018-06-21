@@ -1,9 +1,22 @@
 <template>
-  <q-page class="flex flex-center">
-    <q-search inverted v-model="terms" placeholder="Type the crypto currencie you'd like info on.">
-      <q-autocomplete @search="search" @selected="selected" />
-    </q-search>
-    <CryptoCard></CryptoCard>
+  <q-page>
+    <div class="row">
+      <div class="col-12">
+        <q-search class="searchBar" color="transparent" style="width: 100%" inverted v-model="terms" placeholder="Search a crypto currency">
+          <q-autocomplete @search="search" @selected="selected" />
+        </q-search>
+      </div>
+    </div>
+    <div class="row" style="padding-top: 50px;">
+      <div class="col-12">
+        <div class="q-display-2 text-weight-bold text-white text-center">Total Market Capital: &euro;{{marketCapital.toLocaleString()}}</div>
+      </div>
+    </div>
+    <div class="row" style="padding-top: 50px;">
+      <div class="col-12">
+        <CryptoCard></CryptoCard>
+      </div>
+    </div>
   </q-page>
 </template>
 
@@ -43,6 +56,16 @@ export default {
       })
     }
   },
+  computed: {
+    marketCapital: {
+      get () {
+        return this.$store.state.market.totalMarketCap
+      },
+      set () {
+        this.$store.commit('market/setMarketData')
+      }
+    }
+  },
   created () {
     this.$store.commit('market/setCryptos')
     this.$store.commit('market/setMarketData')
@@ -51,4 +74,22 @@ export default {
 </script>
 
 <style lang="stylus">
+  .searchBar {
+    background-color: transparent;
+    box-shadow: 0 0 25px 5px rgb(0, 98, 196, .25);
+    height: 75px
+
+    &:hover {
+      box-shadow: 0 0 25px 0 #c40000;
+      transition: .5s;
+    }
+
+    input {
+      height: 60px
+    }
+
+    i {
+      height: 60px
+    }
+  }
 </style>
