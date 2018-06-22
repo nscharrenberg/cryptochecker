@@ -24,6 +24,8 @@
 </style>
 
 <script>
+/* eslint-disable standard/object-curly-even-spacing */
+
 import CryptoCard from 'src/components/CryptoCard'
 import { filter } from 'quasar'
 export default {
@@ -46,14 +48,15 @@ export default {
       })
     },
     selected (item) {
-      this.$q.notify(`Selected suggestion "${item.label}"`)
+      this.$router.push({ path: `/crypto/${item.id}`})
     },
     parseCryptos () {
       return Object.values(this.$store.state.market.cryptos).map(crypto => {
         return {
           label: crypto.name,
           sublabel: crypto.symbol,
-          value: crypto.symbol
+          value: crypto.symbol,
+          id: crypto.id
         }
       })
     }
