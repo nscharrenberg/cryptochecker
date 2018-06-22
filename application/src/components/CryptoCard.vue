@@ -2,19 +2,21 @@
   <div>
     <div class="row">
       <q-card inline class="q-ma-sm" v-for="(crypto, index) in orderMarketState()" :key="crypto.id">
-        <q-card-media>
-          <img :src="crypto.image" style="margin-bottom: 15px" @error="imageLoadError(crypto, index)">
-          <q-card-title class="title" slot="overlay">
-            {{crypto.name}}
-            <span slot="subtitle" class="title price-title">
+        <router-link :to="`/crypto/${crypto.id}`">
+          <q-card-media>
+            <img :src="crypto.image" style="margin-bottom: 15px" @error="imageLoadError(crypto, index)">
+            <q-card-title class="title" slot="overlay">
+              {{crypto.rank}}. {{crypto.name}}
+              <span slot="subtitle" class="title price-title">
               &euro;{{getPrice(crypto, "EUR")}}
               <span :class="{'positive-percent-change': crypto.quotes.EUR.isPositiveChange, 'negative-percent-change': !crypto.quotes.EUR.isPositiveChange}"> {{crypto.quotes.EUR.percent_change_24h}}%
                   <q-icon v-if="crypto.quotes.EUR.isPositiveChange" name="arrow_upward" size="12px"/>
                   <q-icon v-else-if="!crypto.quotes.EUR.isPositiveChange" name="arrow_downward" size="12px"/>
                 </span>
             </span>
-          </q-card-title>
-        </q-card-media>
+            </q-card-title>
+          </q-card-media>
+        </router-link>
       </q-card>
     </div>
   </div>

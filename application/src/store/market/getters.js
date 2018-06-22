@@ -14,3 +14,7 @@ export const getActiveCurrencies = (state) => {
 export const getActiveMarkets = (state) => {
   return state.activeMarkets
 }
+
+export const getSelectedCrypto = (state) => {
+  return state.selectedCrypto
+}

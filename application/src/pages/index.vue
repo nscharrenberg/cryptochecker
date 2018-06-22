@@ -40,7 +40,9 @@ export default {
   methods: {
     search (terms, done) {
       setTimeout(() => {
-        done(filter(terms, {field: 'label', list: this.parseCryptos()}))
+        // TODO: Add multi field search
+        var nameFilter = filter(terms, {field: 'label', list: this.parseCryptos()})
+        done(nameFilter)
       })
     },
     selected (item) {

@@ -64,7 +64,9 @@ module.exports = function (ctx) {
         'QCardSeparator',
         'QCardActions',
         'QSearch',
-        'QAutocomplete'
+        'QAutocomplete',
+        'QPageSticky',
+        'QChip'
       ],
       directives: [
         'Ripple'

@@ -1,44 +1,72 @@
 {
   "BTC": {
     "image": "assets/crypto/btc.png",
+    "imageLarge": "assets/crypto/large/btc.png",
     "icon": "assets/crypto/icons/btc.png",
-    "description": "Bitcoin is an experimental digital currency that enables instant payments to anyone, anywhere in the world. Bitcoin uses peer-to-peer technology to operate with no central authority: managing transactions and issuing money are carried out collectively by the network. Bitcoin Core is the name of open source software which enables the use of this currency.",
-    "github": "https://github.com/bitcoin/bitcoin"
+    "description": "Bitcoin is a digital currency created in 2009. It follows the ideas set out in a white paper by the mysterious Satoshi Nakamoto, whose true identity has yet to be verified. Bitcoin offers the promise of lower transaction fees than traditional online payment mechanisms and is operated by a decentralized authority, unlike government-issued currencies.",
+    "code": "https://github.com/bitcoin/bitcoin"
   },
   "LTC": {
     "image": "assets/crypto/ltc.png",
-    "icon": "assets/crypto/icons/ltc.png"
+    "imageLarge": "assets/crypto/large/ltc.png",
+    "description": "Launched in the year 2011, Litecoin is an alternative cryptocurrency based on the model of Bitcoin. Bitcoin was created by an MIT graduate and former Google engineer named Charlie Lee. Litecoin is based on an open source global payment network that is not controlled by any central authority. Litecoin differs from Bitcoins in aspects like faster block generation rate and use of scrypt as a proof of work scheme. ",
+    "icon": "assets/crypto/icons/ltc.png",
+    "code": "https://github.com/bitcoin/bitcoin"
   },
   "XRP": {
     "image": "assets/crypto/xrp.png",
-    "icon": "assets/crypto/icons/xrp.png"
+    "imageLarge": "assets/crypto/large/xrp.png",
+    "description": "A term used by The Dow Theory author, Robert Rhea, to describe the day-to-day fluctuations in stock market prices. Rhea wrote that three simultaneous movements of stock prices occur that can be compared to tides, waves, and ripples. Rhea's book, The Dow Theory, published in 1932, suggested that speculators attempt to ride the tides and the occasional big waves, and that only reckless investors would ever attempt to profit from day-to-day price ripples.",
+    "icon": "assets/crypto/icons/xrp.png",
+    "code": "https://github.com/bitcoin/bitcoin"
   },
   "XLM": {
     "image": "assets/crypto/xlm.png",
-    "icon": "assets/crypto/icons/xlm.png"
+    "imageLarge": "assets/crypto/large/xlm.png",
+    "description": "Stellar is an open-source payment technology that shares several similarities with Ripple. Its founder, Jed McCaleb (pictured), also co-founded Ripple. (See also: Ripple Is Back: Here's Why.) Much like Ripple, Stellar is also a payment technology that aims to connect financial institutions and drastically reduce the cost and time required for cross-border transfers. In fact, both payment networks used the same protocol initially. ",
+    "icon": "assets/crypto/icons/xlm.png",
+    "code": "https://github.com/bitcoin/bitcoin"
   },
   "ETH": {
     "image": "assets/crypto/eth.png",
-    "icon": "assets/crypto/icons/eth.png"
+    "imageLarge": "assets/crypto/large/eth.png",
+    "description": "Launched in 2015, Ethereum is a decentralized software platform that enables SmartContracts and Distributed Applications (ĐApps) to be built and run without any downtime, fraud, control or interference from a third party. Ethereum is not just a platform but also a programming language (Turing complete) running on a blockchain, helping developers to build and publish distributed applications. The potential applications of Ethereum are wide ranging.",
+    "icon": "assets/crypto/icons/eth.png",
+    "code": "https://github.com/bitcoin/bitcoin"
   },
   "MIOTA": {
     "image": "assets/crypto/miota.png",
-    "icon": "assets/crypto/icons/miota.png"
+    "imageLarge": "assets/crypto/large/miota.png",
+    "description": "IOTA is a distributed ledger designed to record and execute transactions between machines in the Internet of Things (IoT) ecosystem. IOTA has a cryptocurrency called mIOTA. IOTA’s platform uses a Decentralized Acyclic Graph (DAG) instead of a blockchain used by other, similar systems. The non-profit foundation behind the platform has also inked agreements with prominent German companies, such as Bosch and Volkswagen, to extend its platform’s utility among connected devices.  ",
+    "icon": "assets/crypto/icons/miota.png",
+    "code": "https://github.com/bitcoin/bitcoin"
   },
   "EOS": {
     "image": "assets/crypto/eos.png",
-    "icon": "assets/crypto/icons/eos.png"
+    "imageLarge": "assets/crypto/large/eos.png",
+    "description": "EOS is a blockchain-based decentralized operating system that is designed to create, host, and support decentralized autonomous applications (dApps).",
+    "icon": "assets/crypto/icons/eos.png",
+    "code": "https://github.com/bitcoin/bitcoin"
   },
   "BCH": {
     "image": "assets/crypto/bch.png",
-    "icon": "assets/crypto/icons/bch.png"
+    "imageLarge": "assets/crypto/large/bch.png",
+    "description": "Bitcoin cash is a cryptocurrency created in August 2017, arising from a fork of Bitcoin Classic. Bitcoin Cash increases the size of blocks, allowing more transactions to be processed.",
+    "icon": "assets/crypto/icons/bch.png",
+    "code": "https://github.com/bitcoin/bitcoin"
   },
   "TRX": {
     "image": "assets/crypto/trx.png",
-    "icon": "assets/crypto/icons/trx.png"
+    "imageLarge": "assets/crypto/large/trx.png",
+    "description": "Tron is a blockchain-based decentralized platform that aims to build a free, global digital content entertainment system with distributed storage technology, and allows easy and cost-effective sharing of digital content.Tron was founded in September 2017 by a Singapore based non-profit organization called the Tron Foundation. It is headed by CEO Justin Sun, and has a dedicated in-house development team that includes renowned technology stalwarts. This article explores the Tron network, its workings, and its cryptocurrency Tronix (TRX).",
+    "icon": "assets/crypto/icons/trx.png",
+    "code": "https://github.com/bitcoin/bitcoin"
   },
   "ADA": {
     "image": "assets/crypto/ada.png",
-    "icon": "assets/crypto/icons/ada.png"
+    "imageLarge": "assets/crypto/large/ada.png",
+    "description": "Cardano is the world's first peer-reviewed blockchain. The nonprofit foundation responsible for Cardano assembled a network of academics and scientists from various universities, including the University of Edinburgh and Tokyo Institute of Technology, to review its protocols before they are released. It is a third-generation cryptocurrency and smart contract platform that claims to improve upon the scaling problems of bitcoin, a first-generation coin, and ethereum, which belongs to the second- generation.   ",
+    "icon": "assets/crypto/icons/ada.png",
+    "code": "https://github.com/bitcoin/bitcoin"
   }
 }

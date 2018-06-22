@@ -11,10 +11,36 @@ export const setCryptos = (state) => {
         crypto.quotes.EUR.priceChangeInPercentage = crypto.quotes.EUR.percent_change_24h.toString().replace(/^-/, '')
         var foundJsonData = otherData[crypto.symbol]
         var undefinedImage = 'assets/crypto/undefined.png'
+        var undefinedImageLarge = 'assets/crypto/large/undefined.png'
         var undefinedIcon = 'assets/crypto/icons/undefined.png'
         crypto.image = foundJsonData != null ? foundJsonData.image != null ? foundJsonData.image : undefinedImage : undefinedImage
+        crypto.imageLarge = foundJsonData != null ? foundJsonData.imageLarge != null ? foundJsonData.imageLarge : undefinedImageLarge : undefinedImageLarge
         crypto.icon = foundJsonData != null ? foundJsonData.icon != null ? foundJsonData.icon : undefinedIcon : undefinedIcon
+        crypto.description = foundJsonData != null ? foundJsonData.description != null ? foundJsonData.description : '' : ''
+        crypto.code = foundJsonData != null ? foundJsonData.code != null ? foundJsonData.code : '' : ''
       })
+    })
+    .catch((err) => console.log(err))
+}
+
+export const addCryptoById = (state, payload) => {
+  const source = 'https://api.coinmarketcap.com/v2/ticker/' + payload + '/?convert=EUR'
+  const otherData = require('assets/cryptocurrencies.json')
+  return axios.get(source)
+    .then((res) => {
+      state.selectedCrypto = res.data.data
+      console.log('yupiyee: ' + JSON.stringify(state.selectedCrypto))
+      state.selectedCrypto.quotes.EUR.isPositiveChange = !(state.selectedCrypto.quotes.EUR.percent_change_24h.toString().indexOf('-') > -1)
+      state.selectedCrypto.quotes.EUR.priceChangeInPercentage = state.selectedCrypto.quotes.EUR.percent_change_24h.toString().replace(/^-/, '')
+      var foundJsonData = otherData[state.selectedCrypto.symbol]
+      var undefinedImage = 'assets/crypto/undefined.png'
+      var undefinedImageLarge = 'assets/crypto/large/undefined.png'
+      var undefinedIcon = 'assets/crypto/icons/undefined.png'
+      state.selectedCrypto.image = foundJsonData != null ? foundJsonData.image != null ? foundJsonData.image : undefinedImage : undefinedImage
+      state.selectedCrypto.imageLarge = foundJsonData != null ? foundJsonData.imageLarge != null ? foundJsonData.imageLarge : undefinedImageLarge : undefinedImageLarge
+      state.selectedCrypto.icon = foundJsonData != null ? foundJsonData.icon != null ? foundJsonData.icon : undefinedIcon : undefinedIcon
+      state.selectedCrypto.description = foundJsonData != null ? foundJsonData.description != null ? foundJsonData.description : '' : ''
+      state.selectedCrypto.code = foundJsonData != null ? foundJsonData.code != null ? foundJsonData.code : '' : ''
     })
     .catch((err) => console.log(err))
 }
