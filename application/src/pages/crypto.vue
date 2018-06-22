@@ -8,7 +8,7 @@
         </div>
       </router-link>
     </q-page-sticky>
-    <div class="row text-center vertical-middle">
+    <div class="row text-center">
       <div class="col-6 image-section">
         <img :src="selectedCrypto.imageLarge" class="crypto-image" style="margin-bottom: 15px" @error="imageLoadError(crypto, index)">
         <h1 class="cryptoCurrency-title text-white">{{ selectedCrypto.name }}</h1>
@@ -21,9 +21,25 @@
         <a v-bind:href="selectedCrypto.code"><q-icon name="insert_drive_file" size="2em" color="white" class="q-pa-xl hover-icon"/></a>
         <a v-bind:href="selectedCrypto.code"><q-icon name="code" size="2em" color="white" class="q-pa-xl hover-icon"/></a>
       </div>
-      <div class="col-6">
-        <p>Bye</p>
+      <div class="col-6 information-section">
+        <div class="price-section">
+          <p class="price-tag text-white">Current Price</p>
+          <p class="price-amount text-white">&euro; {{ Number(selectedCrypto.quotes.EUR.price).toFixed(3).toLocaleString() }}
+            <small :class="{'positive-percent-change': selectedCrypto.quotes.EUR.isPositiveChange, 'negative-percent-change': !selectedCrypto.quotes.EUR.isPositiveChange}">
+              ({{ selectedCrypto.quotes.EUR.priceChangeInPercentage }}%)
+            </small>
+          </p>
+        </div>
+        <div class="price-section text-white">
+          <p class="price-tag">Circulating Supply</p>
+          <p class="price-amount">{{ selectedCrypto.total_supply.toLocaleString() }} <b :class="{'positive-percent-change': selectedCrypto.quotes.EUR.isPositiveChange, 'negative-percent-change': !selectedCrypto.quotes.EUR.isPositiveChange}">{{ selectedCrypto.symbol }}</b></p>
+        </div>
+        <div class="price-section text-white">
+          <p class="price-tag">Market Capital</p>
+          <p class="price-amount">&euro; {{ selectedCrypto.quotes.EUR.market_cap.toLocaleString() }} </p>
+        </div>
       </div>
+
     </div>
   </q-page>
 </template>
@@ -145,6 +161,101 @@ export default {
           color: #fd6721;
         }
       }
+    }
+  }
+
+  .information-section {
+    padding-top: 25px;
+
+    .price-section {
+      text-align: left;
+      padding: 20px 0;
+
+      @media screen and (max-width: $medium) {
+        text-align: center;
+      }
+
+      .price-tag {
+      }
+
+      .price-select-tag {
+        display: inline-block;
+      }
+
+      .control {
+        display: inline-block;
+        float: right;
+        margin-right: 30px;
+        font-size: 0.80rem;
+        .select {
+          select {
+            padding-right: 1.2em;
+          }
+          &:after {
+            right: 0.55em;
+            border: 1px solid #fd6721;
+            border-top: 0;
+            border-right: 0;
+          }
+        }
+
+        @media screen and (max-width: $medium) {
+          display: block;
+          text-align: center;
+          float: none;
+          margin-right: 0px;
+        }
+      }
+
+      .price-amount {
+        font-size: 40px;
+
+        .positive-percent-change {
+          color: #00d1b2;
+        }
+
+        .negative-percent-change {
+          color: #ff3860;
+        }
+
+        .percent-tooltip {
+          color: #FFF;
+          text-align: center;
+          font-size: 10px;
+          font-weight: 500;
+          cursor: initial;
+        }
+
+        @media screen and (max-width: $medium) {
+          font-size: 30px;
+        }
+      }
+
+      .market-cap-price-amount {
+        display: inline-block;
+      }
+
+      .doughnut-chart {
+        display: block;
+        text-align: center;
+        font-weight: 500;
+        width: 50px;
+        margin: 0 auto;
+      }
+
+      .price-amount-iframe {
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+
+    .price-select-section {
+      @media screen and (min-width: $medium) {
+      }
+    }
+
+    .price-section-iframe {
+      padding: 10px 0;
     }
   }
 </style>
